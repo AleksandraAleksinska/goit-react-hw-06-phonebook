@@ -1,15 +1,15 @@
 import React from 'react';
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/actions';
 
 
 
-const ContactForm = ({ onFormSubmit, onChange }) => {
+const ContactForm = () => {
 
   const dispatch = useDispatch();
-const contacts = useSelector(state => state.contacts)  
+  const contacts = useSelector(state => state.contacts)  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,16 +19,13 @@ const contacts = useSelector(state => state.contacts)
       alert(form.elements.name.value + ' is already in contacts');
       } 
       else {
-      dispatch(addContact(form.elements.name.value, form.elements.number.value))    
-          
-        }
+      dispatch(addContact(form.elements.name.value, form.elements.number.value))       
+      }
     
-
-    // dispatch(addContact(form.elements.name.value, form.elements.number.value))        
-      
     form.reset();
   }
 
+  
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>        
@@ -45,7 +42,8 @@ const contacts = useSelector(state => state.contacts)
          </label>
          <label className={css.formLabel}>
            Number 
-           <input onChange={onChange}
+           <input 
+            //  onChange={onChange}
              type="tel"
              name="number"
              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

@@ -1,30 +1,32 @@
-import React from 'react';
-import { nanoid } from 'nanoid';
-import PropTypes from "prop-types";
-import {  useSelector } from 'react-redux';
-import css from './ContactList.module.css'
+import React, { Fragment } from 'react';
+import { getContacts, getFilter } from 'redux/selectors';
+
+import ContactListItem from './ContactListItem';
+import { useSelector } from 'react-redux';
 
 
 
-const ContactList = ({ deleteContact }) => {
-  const contacts = useSelector(state => state.contacts)
+
+
+const ContactList = () => {
+  
+  const filter = useSelector(getFilter)
+  const contacts = useSelector(getContacts)
+  console.log(contacts)
+  console.log(filter)
+  const filteredContacts = filter ? contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLocaleLowerCase())) : contacts;
+  
+  
   return (
+    <Fragment>
     <ul>            
-      { contacts.map((contact) => 
-
-        <li className={css.listItem} key={nanoid()}>- {contact.name}: {contact.number} <button className={css.formButton} type='button' onClick={()=>deleteContact(contact.id)}>Delete</button> </li>) }    
-        
+      <ContactListItem 
+      contacts={filteredContacts}
+      />     
     </ul>
+    </Fragment>
   )
 }
 
 export default ContactList
 
-ContactList.propTypes = {
-  contact: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
-  })),
-  deleteContact: PropTypes.func.isRequired
-}
