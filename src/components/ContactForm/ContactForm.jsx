@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from "prop-types";
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/actions';
@@ -25,14 +24,11 @@ const ContactForm = () => {
     form.reset();
   }
 
-  
-
   return (
     <form className={css.form} onSubmit={handleSubmit}>        
          <label className={css.formLabel}>
            Name 
            <input
-            //  onChange={onChange}
              type="text"
              name="name"
              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -43,7 +39,6 @@ const ContactForm = () => {
          <label className={css.formLabel}>
            Number 
            <input 
-            //  onChange={onChange}
              type="tel"
              name="number"
              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -57,8 +52,3 @@ const ContactForm = () => {
 }
 
 export default ContactForm
-
-ContactForm.propTypes = {
-  // onFormSubmit: PropTypes.func.isRequired,
-  // onChange: PropTypes.func.isRequired
-}

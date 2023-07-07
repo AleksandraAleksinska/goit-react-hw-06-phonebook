@@ -6,11 +6,9 @@ import { deleteContact } from 'redux/actions';
 import PropTypes from "prop-types";
 
 
-
 const ContactListItem = ({ contacts }) => {
 
-    const dispatch = useDispatch();
-    
+    const dispatch = useDispatch();    
     
     return (
       <Fragment>

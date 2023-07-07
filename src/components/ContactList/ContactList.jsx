@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react';
 import { getContacts, getFilter } from 'redux/selectors';
-
 import ContactListItem from './ContactListItem';
 import { useSelector } from 'react-redux';
-
-
-
 
 
 const ContactList = () => {
