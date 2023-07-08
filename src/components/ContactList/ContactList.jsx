@@ -1,18 +1,15 @@
 import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
 import ContactListItem from './ContactListItem';
-import { useSelector } from 'react-redux';
-
 
 const ContactList = () => {
   
   const filter = useSelector(getFilter)
   const contacts = useSelector(getContacts)
-  console.log(contacts)
-  console.log(filter)
+  
   const filteredContacts = filter ? contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLocaleLowerCase())) : contacts;
-  
-  
+    
   return (
     <Fragment>
     <ul>            
@@ -22,7 +19,7 @@ const ContactList = () => {
     </ul>
     </Fragment>
   )
-}
+};
 
-export default ContactList
+export default ContactList;
 

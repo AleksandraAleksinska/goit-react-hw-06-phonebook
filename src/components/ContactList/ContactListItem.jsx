@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/actions';
 import { nanoid } from 'nanoid';
 import css from './ContactList.module.css';
-import { deleteContact } from 'redux/actions';
 import PropTypes from "prop-types";
 
 
@@ -17,7 +17,7 @@ const ContactListItem = ({ contacts }) => {
       </Fragment>
         
   )
-}
+};
 
 export default ContactListItem;
 
@@ -28,4 +28,4 @@ ContactListItem.propTypes = {
     number: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired
   }))
-}
+};
