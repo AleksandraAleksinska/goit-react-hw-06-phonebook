@@ -1,7 +1,7 @@
 import React from 'react';
 import css from'./SearchingFilter.module.css'
 import { useDispatch} from 'react-redux';
-import { setContactFilter } from 'redux/actions';
+import { setContactFilter } from 'redux/filterSlice';
 
 
 const SearchingFilter = () => {
@@ -22,5 +22,5 @@ const SearchingFilter = () => {
   )
 }
 
-export default SearchingFilter
+export default SearchingFilter;
 

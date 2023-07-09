@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/contactsSlice';
 import { nanoid } from 'nanoid';
 import css from './ContactList.module.css';
 import PropTypes from "prop-types";
